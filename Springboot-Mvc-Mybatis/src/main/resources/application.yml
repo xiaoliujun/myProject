@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+
+spring:
+  #数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&rewriteBatchedStatements=true&useSSL=false
+    username: root
+    password: root
+  #视图层控制
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+
+#Mybatis扫描
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  #起别名。可省略写mybatis的xml中的resultType的全路径
+  type-aliases-package: com.entity
+
+# 日志
+logging:
+  level:
+    com.springboot.ssm.mapper: debug # 显示执行sql
